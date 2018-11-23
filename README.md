@@ -2,7 +2,7 @@
 
 - [追随前人的脚步系列之《理解JavaScript执行上下文和执行栈》](https://github.com/coolpo/blog/issues/2)
 - [追随前人的脚步系列之《理解JavaScript执行上下文和变量》](https://github.com/coolpo/blog/issues/3)
-- [测试链接](https://github.com/coolpo/blog/pages/notes01.md)
+- [测试链接](https://github.com/coolpo/blog/blob/master/pages/notes01.md)
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
