@@ -1,8 +1,7 @@
 ## Welcome to GitHub Pages
-呵呵哒
-You can use the [editor on GitHub](https://github.com/coolpo/-Blog/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- [追随前人的脚步系列之《理解JavaScript执行上下文和执行栈》](https://github.com/coolpo/Blog/issues/2)
+
 
 ### Markdown
 
