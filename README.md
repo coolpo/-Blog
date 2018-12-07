@@ -6,32 +6,55 @@
 
 ### 现在是2018年11月24日02:57:53
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```JavaScript
+// 暂存 小程序云开发 上传代码
+// 上传图片
+  doUpload: function () {
+    // 选择图片
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
 
-```markdown
-Syntax highlighted code block
+        wx.showLoading({
+          title: '上传中',
+        })
 
-# Header 1
-## Header 2
-### Header 3
+        const filePath = res.tempFilePaths[0]
 
-- Bulleted
-- List
+        // 上传图片
+        const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
+        wx.cloud.uploadFile({
+          cloudPath,
+          filePath,
+          success: res => {
+            console.log('[上传文件] 成功：', res)
 
-1. Numbered
-2. List
+            app.globalData.fileID = res.fileID
+            app.globalData.cloudPath = cloudPath
+            app.globalData.imagePath = filePath
 
-**Bold** and _Italic_ and `Code` text
+            wx.navigateTo({
+              url: '../storageConsole/storageConsole'
+            })
+          },
+          fail: e => {
+            console.error('[上传文件] 失败：', e)
+            wx.showToast({
+              icon: 'none',
+              title: '上传失败',
+            })
+          },
+          complete: () => {
+            wx.hideLoading()
+          }
+        })
 
-[Link](url) and ![Image](src)
+      },
+      fail: e => {
+        console.error(e)
+      }
+    })
+  },
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/coolpo/-Blog/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
